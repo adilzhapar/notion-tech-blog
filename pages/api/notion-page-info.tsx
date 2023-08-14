@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import got from 'got'
+import axios from 'axios';
 import { PageBlock } from 'notion-types'
 import {
   getBlockIcon,
@@ -125,7 +125,7 @@ async function isUrlReachable(url: string | null): Promise<boolean> {
   }
 
   try {
-    await got.head(url)
+    await axios.head(url)
     return true
   } catch (err) {
     return false
